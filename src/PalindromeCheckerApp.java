@@ -9,21 +9,18 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
-                //test case 2
-                String Msg="madam";
-                Msg=Msg.toLowerCase();
-                String Reverse = "";
-                char[] chars = Msg.toCharArray();
-                for (int i=Msg.length()-1; i>=0;i--) {
-                        Reverse += chars[i];
+                //test case 3
+                Scanner sc = new Scanner(System.in);
+                System.out.println("enter an string:");
+                Boolean Palindrome =false;
+                String Msg= sc.nextLine();
+                for(int i=0; i< Msg.length()/2;i++){
+                        if(Msg.toLowerCase().charAt(i)==Msg.toLowerCase().charAt(Msg.length()-1-i)){
+                                 Palindrome = true;
+                        }
                 }
-                if (Reverse.equals(Msg)){
-                        System.out.println("Palindrome");
-                }
-                else{
-                        System.out.println("not palindrome");
-                }
-
+                if (Palindrome==true) System.out.println("Palindrome");
+                else System.out.println("not palindrome");
         }
 }
 
