@@ -9,6 +9,7 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
+                //test case 2
                 String Msg="madam";
                 Msg=Msg.toLowerCase();
                 String Reverse = "";
