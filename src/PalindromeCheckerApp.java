@@ -13,7 +13,7 @@ public class PalindromeCheckerApp{
                 Msg=Msg.toLowerCase();
                 String Reverse = "";
                 char[] chars = Msg.toCharArray();
-                for (int i=0; i< Msg.length();i++) {
+                for (int i=Msg.length()-1; i>=0;i--) {
                         Reverse += chars[i];
                 }
                 if (Reverse.equals(Msg)){
