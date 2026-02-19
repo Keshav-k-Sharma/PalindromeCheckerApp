@@ -9,5 +9,6 @@ public class PalindromeCheckerApp{
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
                 System.out.println("Hi");
+                System.out.println("test");
         }
 }
