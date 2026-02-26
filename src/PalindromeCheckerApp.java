@@ -9,30 +9,56 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
-                //test case 7
+                //test case 8
                 Scanner sc = new Scanner(System.in);
                 System.out.println("enter an string:");
                 String Msg= sc.nextLine();
                 Boolean Palindrome =true;
 
                 char[] chars=Msg.toLowerCase().toCharArray();
+                System.out.println(chars);
 
-                Deque<Character> deque = new ArrayDeque<>();
-
-                for (char i : chars){
-                        deque.addFirst(i);
-                }
+                LinkedList<Character> first = new LinkedList<>();
+                LinkedList<Character> second = new LinkedList<>();
 
 
-                while(deque.size()>1){
-                        char head= deque.removeFirst();
-                        char tail =deque.removeLast();
-                        if (head != tail){
-                                Palindrome=false;
-                                break;
+                if (chars.length%2==0) {
+                        int mid =chars.length/2;
+                        System.out.println(mid);
+
+                        for (int i = 0; i < mid; i++) {
+                                first.addFirst(chars[i]);
+                        }
+                        for (int i = (chars.length) - 1; i >= mid; i--) {
+                                second.addFirst(chars[i]);
+                        }
+
+                        System.out.println(first);
+                        System.out.println(second);
+                        for (int i = 0; i < first.size(); i++) {
+                                if (first.get(i) != second.get(i)) {
+                                        Palindrome = false;
+                                }
                         }
                 }
+                else {
+                        int mid =(chars.length/2);
+                        System.out.println(mid);
 
+                        for (int i = 0; i < mid; i++) {
+                                first.addFirst(chars[i]);
+                        }
+                        for (int i = (chars.length) - 1; i >mid; i--) {
+                                second.addFirst(chars[i]);
+                        }
+                        System.out.println(first);
+                        System.out.println(second);
+                        for (int i = 0; i < first.size(); i++) {
+                                if (first.get(i) != second.get(i)) {
+                                        Palindrome = false;
+                                }
+                        }
+                }
                 if (Palindrome==true) System.out.println("Palindrome");
                 else System.out.println("not palindrome");
         }
