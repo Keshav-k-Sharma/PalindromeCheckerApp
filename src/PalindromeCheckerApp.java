@@ -9,7 +9,7 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
-                //test case 5
+                //test case 7
                 Scanner sc = new Scanner(System.in);
                 System.out.println("enter an string:");
                 String Msg= sc.nextLine();
@@ -17,20 +17,22 @@ public class PalindromeCheckerApp{
 
                 char[] chars=Msg.toLowerCase().toCharArray();
 
-                Stack<Character> stack= new Stack<>();
-                Queue<Character> queue = new LinkedList<>();
+                Deque<Character> deque = new ArrayDeque<>();
 
-                for (int i=0;i<chars.length;i++){
-                        stack.push(chars[i]);
-                        queue.add(chars[i]);
+                for (char i : chars){
+                        deque.addFirst(i);
                 }
-                while(!stack.empty() && !queue.isEmpty()){
-                        char Stackelement = stack.pop();
-                        char QueueElement = queue.remove();
-                        if (Stackelement != QueueElement){
+
+
+                while(deque.size()>1){
+                        char head= deque.removeFirst();
+                        char tail =deque.removeLast();
+                        if (head != tail){
                                 Palindrome=false;
+                                break;
                         }
                 }
+
                 if (Palindrome==true) System.out.println("Palindrome");
                 else System.out.println("not palindrome");
         }
