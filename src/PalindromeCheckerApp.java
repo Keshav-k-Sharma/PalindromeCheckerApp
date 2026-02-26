@@ -18,17 +18,18 @@ public class PalindromeCheckerApp{
                 char[] chars=Msg.toLowerCase().toCharArray();
 
                 Stack<Character> stack= new Stack<>();
+                Queue<Character> queue = new LinkedList<>();
 
                 for (int i=0;i<chars.length;i++){
                         stack.push(chars[i]);
+                        queue.add(chars[i]);
                 }
-                int j=0;
-                while(!stack.empty() && j<chars.length){
-                        char element = stack.pop();
-                        if (chars[j] != element) {
-                                Palindrome = false;
+                while(!stack.empty() && !queue.isEmpty()){
+                        char Stackelement = stack.pop();
+                        char QueueElement = queue.remove();
+                        if (Stackelement != QueueElement){
+                                Palindrome=false;
                         }
-                        j++;
                 }
                 if (Palindrome==true) System.out.println("Palindrome");
                 else System.out.println("not palindrome");
