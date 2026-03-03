@@ -9,58 +9,23 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
-                //test case 8
+                //test case 9
                 Scanner sc = new Scanner(System.in);
                 System.out.println("enter an string:");
                 String Msg= sc.nextLine();
-                Boolean Palindrome =true;
+                
+                long startTime = System.nanoTime();
+                boolean result = isPalindrome(input, 0, input.length() - 1);
+                long endTime = System.nanoTime();
 
-                char[] chars=Msg.toLowerCase().toCharArray();
-                System.out.println(chars);
-
-                LinkedList<Character> first = new LinkedList<>();
-                LinkedList<Character> second = new LinkedList<>();
-
-
-                if (chars.length%2==0) {
-                        int mid =chars.length/2;
-                        System.out.println(mid);
-
-                        for (int i = 0; i < mid; i++) {
-                                first.addFirst(chars[i]);
-                        }
-                        for (int i = (chars.length) - 1; i >= mid; i--) {
-                                second.addFirst(chars[i]);
-                        }
-
-                        System.out.println(first);
-                        System.out.println(second);
-                        for (int i = 0; i < first.size(); i++) {
-                                if (first.get(i) != second.get(i)) {
-                                        Palindrome = false;
-                                }
-                        }
-                }
-                else {
-                        int mid =(chars.length/2);
-                        System.out.println(mid);
-
-                        for (int i = 0; i < mid; i++) {
-                                first.addFirst(chars[i]);
-                        }
-                        for (int i = (chars.length) - 1; i >mid; i--) {
-                                second.addFirst(chars[i]);
-                        }
-                        System.out.println(first);
-                        System.out.println(second);
-                        for (int i = 0; i < first.size(); i++) {
-                                if (first.get(i) != second.get(i)) {
-                                        Palindrome = false;
-                                }
-                        }
-                }
-                if (Palindrome==true) System.out.println("Palindrome");
-                else System.out.println("not palindrome");
+                System.out.println("IsPalindrome: " + result);
+                System.out.println("Time taken: " + (endTime - startTime) + " ns");
         }
+
+        static boolean isPalindrome(String s, int left, int right) {
+                if (left >= right) return true; // base case
+                if (s.charAt(left) != s.charAt(right)) return false;
+                return isPalindrome(s, left + 1, right - 1);
+    }
 }
 
