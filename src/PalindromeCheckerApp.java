@@ -9,23 +9,23 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
-                //test case 9
-                Scanner sc = new Scanner(System.in);
-                System.out.println("enter an string:");
-                String Msg= sc.nextLine();
-                
-                long startTime = System.nanoTime();
-                boolean result = isPalindrome(input, 0, input.length() - 1);
-                long endTime = System.nanoTime();
+                //test case 10
+                String input = "A man a plan a canal Panama";
 
-                System.out.println("IsPalindrome: " + result);
-                System.out.println("Time taken: " + (endTime - startTime) + " ns");
-        }
+        String cleaned = input.replaceAll("\\s+", "").toLowerCase();
 
-        static boolean isPalindrome(String s, int left, int right) {
+        class Palindrome {
+            boolean isPalindrome(String s, int left, int right) {
                 if (left >= right) return true; // base case
                 if (s.charAt(left) != s.charAt(right)) return false;
                 return isPalindrome(s, left + 1, right - 1);
+            }
+        }
+
+        Palindrome checker = new Palindrome();
+        boolean result = checker.isPalindrome(cleaned, 0, cleaned.length() - 1);
+
+        System.out.println(result);
     }
 }
 
