@@ -9,23 +9,21 @@ public class PalindromeCheckerApp{
                 System.out.println("WELCOME TO Palindrome checker Management System");
                 System.out.println("Version :1.0");
                 System.out.println("System initiaised "+ "successfully");
-                //test case 10
-                String input = "A man a plan a canal Panama";
-
-        String cleaned = input.replaceAll("\\s+", "").toLowerCase();
-
-        class Palindrome {
-            boolean isPalindrome(String s, int left, int right) {
-                if (left >= right) return true; // base case
-                if (s.charAt(left) != s.charAt(right)) return false;
-                return isPalindrome(s, left + 1, right - 1);
-            }
-        }
+                //test case 11
+               String input = "racecar";
 
         Palindrome checker = new Palindrome();
-        boolean result = checker.isPalindrome(cleaned, 0, cleaned.length() - 1);
+        boolean result = checker.isPalindrome(input, 0, input.length() - 1);
 
         System.out.println(result);
+    }
+
+    static class Palindrome {
+        boolean isPalindrome(String s, int left, int right) {
+            if (left >= right) return true;
+            if (s.charAt(left) != s.charAt(right)) return false;
+            return isPalindrome(s, left + 1, right - 1);
+        }
     }
 }
 
